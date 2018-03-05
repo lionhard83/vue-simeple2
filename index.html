@@ -1,0 +1,38 @@
+<div id='app'>
+    <p>{{message}}</p>
+    <!--<p>Somma x+y: {{parseInt(x)+ parseInt(y)}}</p>
+    <p>z: {{z}}</p>
+    <p>x:
+        <input type="number" v-model='x'></input>
+    </p>
+    <p>y:
+        <input type="number" v-model='y'></input>
+    </p>
+
+    <button @click='sum()'>Somma x + y</button>-->
+    <select class="form-control" v-model="token">
+        <option >Pippo</option>
+        <option >Caio</option>
+        <option >Sempronio</option>
+        <option >admin</option>
+    </select>
+    <!--<p>Token:
+      <input v-model='token'/>
+    </p>
+    <button @click='loadOrders()'>Load orders</button>-->
+    <ol>
+        <li v-for='order in orders'> {{order.products}} {{token === 'admin' ? order.user:''}}
+            <button v-if='token==="admin"' @click='deleteOrder(order.id)'>Delete Order {{order.id}}</button>
+        </li>
+    </ol>
+
+    <p>Create Order </p>
+    <label>products</label>
+    <input type="string" v-model='newOrder.products'></input>
+    <label>price</label>
+    <input type="number" v-model='newOrder.price'></input>
+    <button @click='createNewOrder()'>Create new order </button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource"></script>
+<script src="./app.js"></script>
